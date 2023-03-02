@@ -1,0 +1,27 @@
+.header {
+    padding: 10px 0;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nameWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
