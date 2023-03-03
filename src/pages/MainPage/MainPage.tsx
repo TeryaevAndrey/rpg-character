@@ -16,45 +16,51 @@ const MainPage: FC = () => {
 
     attack: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     stels: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     shooting: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     learnability: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     survival: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     medicine: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     intimidation: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     insight: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     appearance: {
       value: 0,
-      level: 0,
+      level: 1,
     },
     manipulation: {
       value: 0,
-      level: 0,
+      level: 1,
     },
   });
+
+  const getDamage = () => {
+    setParameters({...parameters, power: parameters.power - 1});
+  }
+
+  console.log(parameters);
 
   return (
     <>
@@ -66,7 +72,7 @@ const MainPage: FC = () => {
           
           <List parameters={parameters} setParameters={setParameters} />
 
-          <button className="damage-btn">Получить урон:{`)`}</button>
+          <button onClick={getDamage} className="damage-btn">Получить урон:{`)`}</button>
 
           <button className="save-btn">
             Сохранить

@@ -11,7 +11,14 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
     setParameters({
       ...parameters,
       lifeForce: 3 + parameters.power,
-      attack: { ...parameters.attack, value: parameters.power },
+      attack: {
+        ...parameters.attack,
+        value: parameters.power,
+        level:
+          parameters.attack.value % 10 === 0
+            ? parameters.attack.level + 1
+            : parameters.attack.level,
+      },
     });
   }, [parameters.power]);
 
@@ -19,8 +26,22 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
     setParameters({
       ...parameters,
       evasion: 10 + parameters.dexterity,
-      stels: { ...parameters.stels, value: parameters.dexterity },
-      shooting: { ...parameters.shooting, value: parameters.dexterity },
+      stels: {
+        ...parameters.stels,
+        value: parameters.dexterity,
+        level:
+          parameters.attack.value % 10 === 0
+            ? parameters.attack.level + 1
+            : parameters.attack.level,
+      },
+      shooting: {
+        ...parameters.shooting,
+        value: parameters.dexterity,
+        level:
+          parameters.shooting.value % 10 === 0
+            ? parameters.shooting.level + 1
+            : parameters.shooting.level,
+      },
       energy: parameters.dexterity + parameters.intelligence,
     });
   }, [parameters.dexterity]);
@@ -31,9 +52,27 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
       learnability: {
         ...parameters.learnability,
         value: parameters.intelligence,
+        level:
+          parameters.learnability.value % 10 === 0
+            ? parameters.learnability.level + 1
+            : parameters.learnability.level,
       },
-      survival: { ...parameters.survival, value: parameters.intelligence },
-      medicine: { ...parameters.medicine, value: parameters.intelligence },
+      medicine: {
+        ...parameters.medicine,
+        value: parameters.intelligence,
+        level:
+          parameters.medicine.value % 10 === 0
+            ? parameters.medicine.level + 1
+            : parameters.medicine.level,
+      },
+      survival: {
+        ...parameters.survival,
+        value: parameters.intelligence,
+        level:
+          parameters.survival.value % 10 === 0
+            ? parameters.survival.level + 1
+            : parameters.survival.level,
+      },
       energy: parameters.dexterity + parameters.intelligence,
     });
   }, [parameters.intelligence]);
@@ -41,10 +80,38 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
   React.useEffect(() => {
     setParameters({
       ...parameters,
-      intimidation: { ...parameters.intimidation, value: parameters.charisma },
-      insight: { ...parameters.insight, value: parameters.charisma },
-      appearance: { ...parameters.appearance, value: parameters.charisma },
-      manipulation: { ...parameters.manipulation, value: parameters.charisma },
+      intimidation: {
+        ...parameters.intimidation,
+        value: parameters.charisma,
+        level:
+          parameters.intimidation.value % 10 === 0
+            ? parameters.intimidation.level + 1
+            : parameters.intimidation.level,
+      },
+      insight: {
+        ...parameters.insight,
+        value: parameters.charisma,
+        level:
+          parameters.insight.value % 10 === 0
+            ? parameters.insight.level + 1
+            : parameters.insight.level,
+      },
+      appearance: {
+        ...parameters.appearance,
+        value: parameters.charisma,
+        level:
+          parameters.appearance.value % 10 === 0
+            ? parameters.appearance.level + 1
+            : parameters.appearance.level,
+      },
+      manipulation: {
+        ...parameters.manipulation,
+        value: parameters.charisma,
+        level:
+          parameters.manipulation.value % 10 === 0
+            ? parameters.manipulation.level + 1
+            : parameters.manipulation.level,
+      },
     });
   }, [parameters.charisma]);
 
