@@ -1,0 +1,32 @@
+.wrapper {
+    width: 100%;
+    min-height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.level {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 50%;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
