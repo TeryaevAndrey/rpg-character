@@ -1,0 +1,14 @@
+.wrapper {
+    overflow-x: hidden;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.inner {
+    overflow-x: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 15px;
+}

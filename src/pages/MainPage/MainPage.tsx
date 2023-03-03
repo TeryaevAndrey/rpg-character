@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Header from "../../components/Header/Header";
 import List from "../../components/List/List";
+import Saves from "../../components/Saves/Saves";
 
 const MainPage: FC = () => {
   const [parameters, setParameters] = React.useState<IParameters>({
@@ -61,7 +62,11 @@ const MainPage: FC = () => {
       <section className="main">
         <div className="container">
           
+          <Saves />
+          
           <List parameters={parameters} setParameters={setParameters} />
+
+          <button className="damage-btn">Получить урон:{`)`}</button>
 
           <button className="save-btn">
             Сохранить

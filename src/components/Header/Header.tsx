@@ -2,8 +2,6 @@ import React, { FC } from "react";
 import styles from "./header.module.css";
 import EditImg from "../../images/edit.svg";
 import DownloadImg from "../../images/download.svg";
-import ImportImg from "../../images/import.svg";
-import MenuImg from "../../images/burger.svg";
 
 const Header: FC = () => {
   return (
@@ -17,11 +15,6 @@ const Header: FC = () => {
               src={EditImg}
               alt="Редактировать имя"
             />
-          </div>
-          <div className={styles.iconWrapper}>
-            <img className={styles.icon} src={DownloadImg} alt="Сохранить" />
-            <img className={styles.icon} src={ImportImg} alt="Импортировать" />
-            <img className={styles.icon} src={MenuImg} alt="Меню" />
           </div>
         </div>
       </div>

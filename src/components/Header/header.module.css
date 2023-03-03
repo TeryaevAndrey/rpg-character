@@ -20,6 +20,13 @@
     gap: 10px;
 }
 
+.saveWrapper {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+    cursor: pointer;
+}
+
 .icon {
     cursor: pointer;
     width: 30px;
