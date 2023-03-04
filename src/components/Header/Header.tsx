@@ -2,8 +2,19 @@ import React, { FC } from "react";
 import styles from "./header.module.css";
 import EditImg from "../../images/edit.svg";
 import DownloadImg from "../../images/download.svg";
+import axios from "axios";
 
 const Header: FC = () => {
+  const [name, setName] = React.useState<string>("");
+
+  const changeName = async () => {
+    const newName = prompt("Введите новое имя");
+
+    if (newName !== null && newName.length === 0) {
+      alert("Ошибка. Вы оставили поле пустым!");
+    }
+  };
+
   return (
     <div className={styles.header}>
       <div className="container">
