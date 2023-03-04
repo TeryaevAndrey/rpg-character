@@ -32,3 +32,8 @@
     width: 30px;
     height: 30px;
 }
+
+.exitBtn {
+    background-color: transparent;
+    color: #fff;
+}
