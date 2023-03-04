@@ -15,12 +15,12 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.attack,
         value: parameters.power,
         level:
-          parameters.attack.value % 10 === 0
+          parameters.attack.value % 10 === 0 && parameters.attack.value > 0
             ? parameters.attack.level + 1
             : parameters.attack.level,
       },
     });
-  }, [parameters.power]);
+  }, [parameters.power, setParameters]);
 
   React.useEffect(() => {
     setParameters({
@@ -30,21 +30,21 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.stels,
         value: parameters.dexterity,
         level:
-          parameters.attack.value % 10 === 0
-            ? parameters.attack.level + 1
-            : parameters.attack.level,
+          parameters.stels.value % 10 === 0 && parameters.stels.value > 0
+            ? parameters.stels.level + 1
+            : parameters.stels.level,
       },
       shooting: {
         ...parameters.shooting,
         value: parameters.dexterity,
         level:
-          parameters.shooting.value % 10 === 0
+          parameters.shooting.value % 10 === 0 && parameters.shooting.value > 0
             ? parameters.shooting.level + 1
             : parameters.shooting.level,
       },
       energy: parameters.dexterity + parameters.intelligence,
     });
-  }, [parameters.dexterity]);
+  }, [parameters.dexterity, setParameters]);
 
   React.useEffect(() => {
     setParameters({
@@ -53,7 +53,8 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.learnability,
         value: parameters.intelligence,
         level:
-          parameters.learnability.value % 10 === 0
+          parameters.learnability.value % 10 === 0 &&
+          parameters.learnability.value > 0
             ? parameters.learnability.level + 1
             : parameters.learnability.level,
       },
@@ -61,7 +62,7 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.medicine,
         value: parameters.intelligence,
         level:
-          parameters.medicine.value % 10 === 0
+          parameters.medicine.value % 10 === 0 && parameters.medicine.value > 0
             ? parameters.medicine.level + 1
             : parameters.medicine.level,
       },
@@ -69,13 +70,13 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.survival,
         value: parameters.intelligence,
         level:
-          parameters.survival.value % 10 === 0
+          parameters.survival.value % 10 === 0 && parameters.survival.value > 0
             ? parameters.survival.level + 1
             : parameters.survival.level,
       },
       energy: parameters.dexterity + parameters.intelligence,
     });
-  }, [parameters.intelligence]);
+  }, [parameters.intelligence, setParameters]);
 
   React.useEffect(() => {
     setParameters({
@@ -84,7 +85,8 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.intimidation,
         value: parameters.charisma,
         level:
-          parameters.intimidation.value % 10 === 0
+          parameters.intimidation.value % 10 === 0 &&
+          parameters.manipulation.value > 0
             ? parameters.intimidation.level + 1
             : parameters.intimidation.level,
       },
@@ -92,7 +94,8 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.insight,
         value: parameters.charisma,
         level:
-          parameters.insight.value % 10 === 0
+          parameters.insight.value % 10 === 0 &&
+          parameters.manipulation.value > 0
             ? parameters.insight.level + 1
             : parameters.insight.level,
       },
@@ -100,7 +103,8 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.appearance,
         value: parameters.charisma,
         level:
-          parameters.appearance.value % 10 === 0
+          parameters.appearance.value % 10 === 0 &&
+          parameters.appearance.value > 0
             ? parameters.appearance.level + 1
             : parameters.appearance.level,
       },
@@ -108,12 +112,13 @@ const List: FC<IList> = ({ parameters, setParameters }) => {
         ...parameters.manipulation,
         value: parameters.charisma,
         level:
-          parameters.manipulation.value % 10 === 0
+          parameters.manipulation.value % 10 === 0 &&
+          parameters.manipulation.value > 0
             ? parameters.manipulation.level + 1
             : parameters.manipulation.level,
       },
     });
-  }, [parameters.charisma]);
+  }, [parameters.charisma, setParameters]);
 
   return (
     <div className="list">
