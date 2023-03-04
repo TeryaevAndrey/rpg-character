@@ -56,7 +56,7 @@ const MainPage: FC = () => {
       level: 1,
     },
   });
-  const [saves, setSaves] = React.useState<[]>([]);
+  const [saves, setSaves] = React.useState<any>([]);
   const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
 
   const getDamage = () => {
@@ -75,6 +75,8 @@ const MainPage: FC = () => {
         })
         .then((res: AxiosResponse) => {
           alert(res.data.message);
+
+          setSaves((prev: any) => [res.data.parametersObj, ...prev])
         })
         .catch((err) => {
           alert(err.response.data.message);
