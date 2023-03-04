@@ -26,6 +26,8 @@ const LoginPage: FC = () => {
       .then((res: AxiosResponse) => {
         alert(res.data.message);
 
+        localStorage.setItem("userInfo", JSON.stringify(res.data.userInfo));
+
         navigate("/");
       })
       .catch((err) => {
