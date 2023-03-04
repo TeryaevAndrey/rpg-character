@@ -1,10 +1,20 @@
-import React from 'react';
-import {Routes, Route} from "react-router-dom";
-import LoginPage from './pages/LoginPage';
-import MainPage from './pages/MainPage/MainPage';
-import RegPage from './pages/RegPage';
+import React from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import MainPage from "./pages/MainPage/MainPage";
+import RegPage from "./pages/RegPage";
 
 function App() {
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!localStorage.getItem("userInfo")) {
+      navigate("/auth/login");
+    } else {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div className="App">
       <Routes>
