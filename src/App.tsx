@@ -1,11 +1,14 @@
 import React from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import jwt from "jsonwebtoken";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage/MainPage";
 import RegPage from "./pages/RegPage";
+import axios from "axios";
 
 function App() {
   const navigate = useNavigate();
+  const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
 
   React.useEffect(() => {
     if (!localStorage.getItem("userInfo")) {
@@ -13,6 +16,16 @@ function App() {
     } else {
       navigate("/");
     }
+  }, []);
+
+  React.useEffect(() => {
+    axios
+      .post(process.env.REACT_APP_PROXY + "/api/auth/check-token", {
+        token: userInfo.token,
+      })
+      .catch((err) => {
+        navigate("/auth/login");
+      });
   }, []);
 
   return (

@@ -2,8 +2,10 @@ import React, { FC } from "react";
 import styles from "./header.module.css";
 import EditImg from "../../images/edit.svg";
 import axios, { AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Header: FC = () => {
+  const navigate = useNavigate();
   const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
   const [name, setName] = React.useState<string>(userInfo.userName);
 
@@ -23,10 +25,13 @@ const Header: FC = () => {
         .then((res: AxiosResponse) => {
           alert(res.data.message);
 
-          localStorage.setItem("userInfo", JSON.stringify({
-            ...userInfo,
-            userName: newName,
-          }));
+          localStorage.setItem(
+            "userInfo",
+            JSON.stringify({
+              ...userInfo,
+              userName: newName,
+            })
+          );
 
           setName(newName);
         })
@@ -34,6 +39,11 @@ const Header: FC = () => {
           alert(err.response.data.message);
         });
     }
+  };
+
+  const exit = () => {
+    localStorage.removeItem("userInfo");
+    navigate("/auth/login");
   };
 
   return (
@@ -49,6 +59,7 @@ const Header: FC = () => {
               onClick={changeName}
             />
           </div>
+          <p onClick={exit}>Выход</p>
         </div>
       </div>
     </div>
