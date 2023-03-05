@@ -89,7 +89,7 @@ const MainPage: FC = () => {
       <Header />
       <section className="main">
         <div className="container">
-          <Saves saves={saves} setSaves={setSaves} />
+          <Saves saves={saves} setSaves={setSaves} setParameters={setParameters} />
 
           <List parameters={parameters} setParameters={setParameters} />
 

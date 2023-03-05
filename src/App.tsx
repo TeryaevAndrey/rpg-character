@@ -22,6 +22,8 @@ function App() {
     axios
       .post(process.env.REACT_APP_PROXY + "/api/auth/check-token", {
         token: userInfo.token,
+      }).then(() => {
+        navigate("/auth/login");
       })
       .catch((err) => {
         navigate("/auth/login");
