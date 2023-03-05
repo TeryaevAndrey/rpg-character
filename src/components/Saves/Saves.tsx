@@ -4,7 +4,7 @@ import Save from "./Save/Save";
 import styles from "./saves.module.css";
 
 interface ISaves {
-  saves: [];
+  saves: ISavesItem[] | [];
   setSaves: Function;
   setParameters: Function;
 }
@@ -31,6 +31,12 @@ const Saves: FC<ISaves> = ({ saves, setSaves, setParameters }) => {
       .delete(process.env.REACT_APP_PROXY + `/api/parameters/delete-save/${id}`)
       .then((res: AxiosResponse) => {
         alert(res.data.message);
+
+        const filterSaves = saves.filter((item: ISavesItem) => {
+          return item._id !== id;
+        });
+
+        setSaves(filterSaves);
       })
       .catch((err) => {
         alert(err.response.data.message);

@@ -1,33 +1,33 @@
 .wrapper {
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    align-items: center;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 }
 
 .wrapperBtns {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .importBtn {
-    background-color: transparent;
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
 }
 
 .deleteBtn {
-    color: red;
-    cursor: pointer;
-    border-bottom: 1px solid transparent;
+  color: red;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
 }
 
 .deleteBtn:hover {
-    border-bottom: 1px solid red;
+  border-bottom: 1px solid red;
 }

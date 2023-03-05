@@ -59,7 +59,9 @@ const Header: FC = () => {
               onClick={changeName}
             />
           </div>
-          <button className={styles.exitBtn} onClick={exit}>Выход</button>
+          <button className={styles.exitBtn} onClick={exit}>
+            Выход
+          </button>
         </div>
       </div>
     </div>

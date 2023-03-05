@@ -56,7 +56,7 @@ const MainPage: FC = () => {
       level: 1,
     },
   });
-  const [saves, setSaves] = React.useState<any>([]);
+  const [saves, setSaves] = React.useState<ISavesItem[] | []>([]);
   const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
 
   const getDamage = () => {
@@ -76,7 +76,7 @@ const MainPage: FC = () => {
         .then((res: AxiosResponse) => {
           alert(res.data.message);
 
-          setSaves((prev: any) => [res.data.parametersObj, ...prev])
+          setSaves((prev: any) => [res.data.parametersObj, ...prev]);
         })
         .catch((err) => {
           alert(err.response.data.message);
@@ -89,7 +89,11 @@ const MainPage: FC = () => {
       <Header />
       <section className="main">
         <div className="container">
-          <Saves saves={saves} setSaves={setSaves} setParameters={setParameters} />
+          <Saves
+            saves={saves}
+            setSaves={setSaves}
+            setParameters={setParameters}
+          />
 
           <List parameters={parameters} setParameters={setParameters} />
 

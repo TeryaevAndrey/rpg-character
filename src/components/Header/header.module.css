@@ -1,39 +1,39 @@
 .header {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 
 .inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nameWrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .iconWrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .saveWrapper {
-    display: flex;
-    align-items: center; 
-    gap: 10px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
 }
 
 .icon {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
 }
 
 .exitBtn {
-    background-color: transparent;
-    color: #fff;
+  background-color: transparent;
+  color: #fff;
 }
