@@ -5,10 +5,10 @@ import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage/MainPage";
 import RegPage from "./pages/RegPage";
 import axios from "axios";
+import checkToken from "./utils/checkToken";
 
 function App() {
   const navigate = useNavigate();
-  const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
 
   React.useEffect(() => {
     if (!localStorage.getItem("userInfo")) {
@@ -19,17 +19,13 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    axios
-      .post(process.env.REACT_APP_PROXY + "/api/auth/check-token", {
-        token: userInfo.token,
-      })
-      .then(() => {
-        navigate("/auth/login");
-      })
-      .catch((err) => {
-        navigate("/auth/login");
-      });
-  }, []);
+    const deadToken = checkToken();
+
+    if (deadToken) {
+      navigate("/auth/login");
+      localStorage.removeItem("userInfo");
+    }
+  }, [navigate]);
 
   return (
     <div className="App">
